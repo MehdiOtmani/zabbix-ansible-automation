@@ -9,3 +9,5 @@ zabbix_agent_timeout: 3
 
 # Package state
 zabbix_agent_state: present  
+zabbix_agent_config_path: "/etc/zabbix/zabbix_agentd.conf"
+zabbix_agent_service: "zabbix-agent"
