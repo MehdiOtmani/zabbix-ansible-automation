@@ -70,7 +70,7 @@ The playbook modifies `/etc/zabbix/zabbix_agentd.conf`:
 ```bash
 zabbix-ansible-automation/
   - group_vars:
-      zabbix-agent-vars.yml
+      zabbix_agents.yml
   - README.md
   - ansible.cfg # Ansible settings
   - inventory.yml # Your hosts (gitignored)
