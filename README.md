@@ -33,9 +33,9 @@ git clone https://github.com/MehdiOtmani/zabbix-ansible-automation.git
 cd zabbix-ansible-automation
  ```
 
-### 2. Edit Inventory
-Update `inventory.yml` with your host IPs and SSH user
-
+### 2. Edit Inventory.yml & ansible.cfg
+Update `inventory.yml` with your host IPs 
+Update `ansible.cfg` with your user on the remote hosts and your private key location 
 
 ### 3. Update Zabbix Server IP
 Edit `zabbix-agent.yml` and change:
