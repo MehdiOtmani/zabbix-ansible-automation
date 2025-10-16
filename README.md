@@ -56,11 +56,10 @@ The playbook modifies `/etc/zabbix/zabbix_agentd.conf`:
 
 ## Project Structure
 zabbix-ansible-automation/
-├── README.md
-├── ansible.cfg # Ansible settings
-├── inventory-example.yml # Template inventory
-├── inventory.yml # Your hosts (gitignored)
-└── zabbix-agent.yml # Main playbook
+  - README.md
+  - ansible.cfg # Ansible settings
+  - inventory.yml # Your hosts (gitignored)
+  - zabbix-agent.yml # Main playbook
 
 
 ## Troubleshooting
