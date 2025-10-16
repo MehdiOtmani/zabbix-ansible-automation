@@ -88,12 +88,12 @@ sudo systemctl status zabbix-agent
 grep -E '^(Server|ServerActive|Hostname)=' /etc/zabbix/zabbix_agentd.conf
  ```
 - Test SSH connection:
-  ```bash
+```bash
 ssh -i ~/.ssh/id_ed25519 user@host_ip
  ```
 
 - Verify inventory:
-  ```bash
+```bash
 ansible-inventory -i inventory.yml --graph
  ```
 
