@@ -1,6 +1,6 @@
 ---
 # Zabbix server configuration
-zabbix_server_ip: "192.168.101.34"  # Change to your Zabbix server IP
+zabbix_server_ip: "192.168.101.34"  
 zabbix_agent_port: 10050
 
 # Agent configuration
@@ -8,4 +8,4 @@ zabbix_agent_start_agents: 3
 zabbix_agent_timeout: 3
 
 # Package state
-zabbix_agent_state: present  # Use 'latest' to always update
+zabbix_agent_state: present  
