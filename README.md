@@ -21,7 +21,7 @@ Automated deployment of Zabbix agents on multiple Linux hosts using Ansible.
 - SSH access to target hosts
 
 **Target Hosts:**
-- Ubuntu/Debian
+- Ubuntu/Debian 22.04 LTS
 - User with sudo privileges
 - Network access to Zabbix server
 
