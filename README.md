@@ -1,6 +1,11 @@
 # Zabbix Ansible Automation
 
-Automated deployment of Zabbix monitoring agents across multiple Linux hosts using Ansible.
+Automated deployment of Zabbix agents on multiple Linux hosts using Ansible.
+
+[![Ansible](https://img.shields.io/badge/Ansible-2.9%2B-blue)](https://www.ansible.com/)
+[![Zabbix](https://img.shields.io/badge/Zabbix-Monitoring-orange)](https://www.zabbix.com/)
+[![Linux](https://img.shields.io/badge/Linux-Ubuntu%2FDebian-lightgrey)](https://www.linux.org/)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 ## What It Does
 
