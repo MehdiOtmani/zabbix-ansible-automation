@@ -51,12 +51,14 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub user@host_ip
 *Note: For multiple hosts, consider using Ansible's `authorized_key` module to automate key distribution.*
 
 ### 5. Test Connection
+```bash
 ansible -i inventory.yml zabbix_agents -m ping
-
+ ```
 
 ### 6. Deploy
+```bash
 ansible-playbook -i inventory.yml zabbix-agent-setup.yml
-
+ ```
 
 ## What Gets Configured
 The playbook modifies `/etc/zabbix/zabbix_agentd.conf`:
@@ -65,28 +67,35 @@ The playbook modifies `/etc/zabbix/zabbix_agentd.conf`:
 - **Hostname**: Set from inventory hostname
 
 ## Project Structure
+```bash
 zabbix-ansible-automation/
+  - group_vars:
+      zabbix-agent-vars.yml
   - README.md
   - ansible.cfg # Ansible settings
   - inventory.yml # Your hosts (gitignored)
-  - zabbix-agent.yml # Main playbook
-
+  - zabbix-agent-setup.yml # Main playbook
+```
 
 ## Troubleshooting
 ### Agent not showing in Zabbix UI
-
 - Check service status:
+  ```bash
 sudo systemctl status zabbix-agent
-
+ ```
 - Verify configuration:
+  ```bash
 grep -E '^(Server|ServerActive|Hostname)=' /etc/zabbix/zabbix_agentd.conf
-
+ ```
 - Test SSH connection:
+  ```bash
 ssh -i ~/.ssh/id_ed25519 user@host_ip
+ ```
 
 - Verify inventory:
+  ```bash
 ansible-inventory -i inventory.yml --graph
-
+ ```
 
 ## Real-World Use :
 Deployed across 15+ Ubuntu VMs running security tools (MISP, TheHive, Wazuh) to standardize monitoring infrastructure. Reduced deployment time from 15 minutes per host to under 2 minutes for batch operations.
