@@ -2,19 +2,34 @@
 - name: Deploy and configure Zabbix agent
   hosts: zabbix_agents
   become: yes
-  vars:
-    zabbix_server_ip: "192.168.101.34"
 
   tasks:
     - name: Install Zabbix agent
       apt:
         name: zabbix-agent
-        state: present
+        state: "{{ zabbix_agent_state }}"
         update_cache: yes
+        cache_valid_time: 3600
 
-    - name: Configure Zabbix agent
+    - name: Ensure Zabbix config directory exists
+      file:
+        path: "{{ zabbix_agent_config_path | dirname }}"
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+
+    - name: Ensure Zabbix config file exists
+      file:
+        path: "{{ zabbix_agent_config_path }}"
+        state: touch
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Configure Zabbix agent core settings
       lineinfile:
-        path: /etc/zabbix/zabbix_agentd.conf
+        path: "{{ zabbix_agent_config_path }}"
         regexp: '^{{ item.key }}='
         line: '{{ item.key }}={{ item.value }}'
         backup: yes
@@ -25,6 +40,6 @@
 
     - name: Ensure Zabbix agent is enabled and restarted
       systemd:
-        name: zabbix-agent
+        name: "{{ zabbix_agent_service }}"
         enabled: yes
         state: restarted
