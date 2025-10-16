@@ -1,0 +1,30 @@
+---
+- name: Deploy and configure Zabbix agent
+  hosts: zabbix_agents
+  become: yes
+  vars:
+    zabbix_server_ip: "192.168.101.34"
+
+  tasks:
+    - name: Install Zabbix agent
+      apt:
+        name: zabbix-agent
+        state: present
+        update_cache: yes
+
+    - name: Configure Zabbix agent
+      lineinfile:
+        path: /etc/zabbix/zabbix_agentd.conf
+        regexp: '^{{ item.key }}='
+        line: '{{ item.key }}={{ item.value }}'
+        backup: yes
+      loop:
+        - { key: 'Server', value: '{{ zabbix_server_ip }}' }
+        - { key: 'ServerActive', value: '{{ zabbix_server_ip }}' }
+        - { key: 'Hostname', value: '{{ inventory_hostname }}' }
+
+    - name: Ensure Zabbix agent is enabled and restarted
+      systemd:
+        name: zabbix-agent
+        enabled: yes
+        state: restarted
