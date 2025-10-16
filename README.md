@@ -28,17 +28,20 @@ Automated deployment of Zabbix agents on multiple Linux hosts using Ansible.
 ## Quick Start
 
 ### 1. Clone and Setup
+undefined
 git clone https://github.com/YOURUSERNAME/zabbix-ansible-automation.git
 cd zabbix-ansible-automation
-
+undefined
 
 ### 2. Edit Inventory
 Update `inventory.yml` with your host IPs and SSH user:
 
 
 ### 3. Update Zabbix Server IP
+undefined
 Edit `zabbix-agent.yml` and change:
 zabbix_server_ip: "192.168.101.34" # Your Zabbix server
+undefined
 
 ### 4. Setup SSH Keys
 ssh-keygen -t ed25519
