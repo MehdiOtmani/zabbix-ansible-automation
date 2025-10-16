@@ -80,11 +80,11 @@ zabbix-ansible-automation/
 ## Troubleshooting
 ### Agent not showing in Zabbix UI
 - Check service status:
-  ```bash
+```bash
 sudo systemctl status zabbix-agent
  ```
 - Verify configuration:
-  ```bash
+```bash
 grep -E '^(Server|ServerActive|Hostname)=' /etc/zabbix/zabbix_agentd.conf
  ```
 - Test SSH connection:
