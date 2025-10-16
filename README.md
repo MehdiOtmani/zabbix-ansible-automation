@@ -29,7 +29,7 @@ Automated deployment of Zabbix agents on multiple Linux hosts using Ansible.
 
 ### 1. Clone and Setup
 ```bash
-git clone https://github.com/YOURUSERNAME/zabbix-ansible-automation.git
+git clone https://github.com/MehdiOtmani/zabbix-ansible-automation.git
 cd zabbix-ansible-automation
  ```
 
