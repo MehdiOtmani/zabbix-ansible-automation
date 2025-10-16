@@ -47,10 +47,11 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub user@host_ip
 *Note: For multiple hosts, consider using Ansible's `authorized_key` module to automate key distribution.*
 
 ### 5. Test Connection
-ansible zabbix_agents -i inventory.yml -m ping
+ansible -i inventory.yml zabbix_agents -m ping
+
 
 ### 6. Deploy
-ansible-playbook -i inventory.yml zabbix-agent.yml
+ansible-playbook -i inventory.yml zabbix-agent-setup.yml
 
 
 ## What Gets Configured
